@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zufallswort</title>
+    <style>
+      .word-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="word-container">
+      <input type="text" id="word1" placeholder="Wort 1">
+      <input type="text" id="word2" placeholder="Wort 2">
+      <input type="text" id="word3" placeholder="Wort 3">
+      <input type="text" id="word4" placeholder="Wort 4">
+      <button id="btn">Zeige Zufallswort</button>
+      <p id="display-word"></p>
+    </div>
+
+    <script>
+      const word1 = document.querySelector("#word1");
+      const word2 = document.querySelector("#word2");
+      const word3 = document.querySelector("#word3");
+      const word4 = document.querySelector("#word4");
+      const btn = document.querySelector("#btn");
+      const displayWord = document.querySelector("#display-word");
+      
+      btn.addEventListener("click", function() {
+        const words = [word1.value, word2.value, word3.value, word4.value];
+        const randomIndex = Math.floor(Math.random() * words.length);
+        displayWord.innerHTML = words[randomIndex];
+      });
+    </script>
+  </body>
+</html>
