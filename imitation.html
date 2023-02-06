@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatGPT Imitation</title>
+    <style>
+      .chat-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        width: 60%;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        background-color: lightblue;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <input type="text" id="question" placeholder="Deine Frage">
+      <button id="btn">Antworten</button>
+      <p id="answer"></p>
+    </div>
+
+    <script>
+      const question = document.querySelector("#question");
+      const btn = document.querySelector("#btn");
+      const answer = document.querySelector("#answer");
+      
+      const noIdeaPhrases = [
+        "Ich bin mir nicht sicher.",
+        "Ich habe keine Ahnung.",
+        "Das weiß ich nicht.",
+        "Das kann ich dir nicht sagen.",
+        "Das ist mir unbekannt.",
+        "Tut mir leid, das weiß ich nicht."
+      ];
+      
+      btn.addEventListener("click", function() {
+        const randomIndex = Math.floor(Math.random() * noIdeaPhrases.length);
+        answer.innerHTML = noIdeaPhrases[randomIndex];
+      });
+    </script>
+  </body>
+</html>
