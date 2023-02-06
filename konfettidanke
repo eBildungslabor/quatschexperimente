@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <title>Danke mit Konfetti-Regen</title>
+  </head>
+  <body>
+    <main class="container">
+  
+      <button id="button">Klick mich!</button>
+<div id="confetti-container"></div>
+
+<style>
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+  }
+</style>
+
+<script>
+  const button = document.querySelector("#button");
+  const thankYouPhrases = [
+    "Vielen Dank!",
+    "Danke schön!",
+    "Herzlichen Dank!",
+    "Dankeschön!",
+    "Wir schätzen deine Unterstützung!",
+    "Vielen Dank für deine Zeit!",
+    "Wir danken dir!",
+    "Vielen herzlichen Dank!",
+    "Wir schätzen deine Hilfe!",
+    "Danke für alles!"
+  ];
+  const confettiContainer = document.querySelector("#confetti-container");
+
+  button.addEventListener("click", function() {
+    let randomPhrase = thankYouPhrases[Math.floor(Math.random() * thankYouPhrases.length)];
+    alert(randomPhrase);
+
+    // Konfettiregen-Effekt
+    for (let i = 0; i < 50; i++) {
+      let confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "%";
+      confetti.style.top = Math.random() * 100 + "px";
+      confetti.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+      confettiContainer.appendChild(confetti);
+    }
+  });
+</script>
+
+      
+      
+      
+      
+    </main>
+      </body>
+</html>
