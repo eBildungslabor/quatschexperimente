@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bildungszitate</title>
+    <style>
+      .quote-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quote-container">
+      <p id="quote">Lade...</p>
+    </div>
+
+    <script>
+      const quotes = [
+        "Bildung ist nicht, was man weiß, sondern was man mit dem, was man weiß, anstellt.",
+        "Echte Bildung bedeutet, nicht nur Kenntnisse zu erwerben, sondern auch ein besserer Mensch zu werden.",
+        "Bildung ist der Schlüssel zur Freiheit.",
+        "Bildung beginnt mit der Geburt und hört niemals auf.",
+        "Bildung ist nicht, was man in Schulen erhält. Es ist, was man mit diesen durch das Leben trägt."
+      ];
+      
+      const quoteContainer = document.querySelector("#quote");
+      
+      function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        quoteContainer.innerHTML = quotes[randomIndex];
+      }
+      
+      getRandomQuote();
+    </script>
+  </body>
+</html>
