@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zahlenraten</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        width: 60%;
+        text-align: center;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        background-color: lightblue;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="input-field" maxlength="4" placeholder="Vier Zahlen">
+      <button id="btn">Überprüfen</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      const inputField = document.querySelector("#input-field");
+      const btn = document.querySelector("#btn");
+      const result = document.querySelector("#result");
+      
+      btn.addEventListener("click", function() {
+        if (inputField.value === "3672") {
+          inputField.style.display = "none";
+          btn.style.display = "none";
+          result.innerHTML = "Hurra, Sie haben das Rätsel gelöst!";
+        } else {
+          result.innerHTML = "Das stimmt leider nicht.";
+          setTimeout(function() {
+            result.innerHTML = "";
+          }, 10000);
+        }
+      });
+    </script>
+  </body>
+</html>
