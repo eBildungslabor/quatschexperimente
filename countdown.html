@@ -1,36 +1,67 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Countdown</title>
-    <script>
-      function startCountdown() {
-        var input = document.getElementById("input").value;
-        var time = parseInt(input);
-        document.getElementById("inputArea").style.display = "none";
-        document.getElementById("countdown").innerHTML = time;
-        setInterval(function() {
-          time--;
-          document.getElementById("countdown").innerHTML = time;
-          if (time === 0) {
-            document.getElementById("countdown").innerHTML = "Die Zeit ist um.";
-            document.getElementById("showInputButton").style.display = "block";
-          }
-        }, 1000);
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
       }
-      
-      function showInput() {
-        document.getElementById("inputArea").style.display = "block";
-        document.getElementById("countdown").innerHTML = "";
-        document.getElementById("showInputButton").style.display = "none";
+      .countdown {
+        font-size: 48px;
+        margin-bottom: 1em;
       }
-    </script>
+      button {
+        font-size: 24px;
+        padding: 0.5em 1em;
+      }
+    </style>
   </head>
   <body>
-    <div id="inputArea">
-      <input type="text" id="input" placeholder="Sekunden eingeben">
-      <button onclick="startCountdown()">Starten</button>
+    <div class="container">
+      <div id="inputContainer" style="display: flex;">
+        <input type="text" id="inputSeconds">
+        <button id="startButton">Starten</button>
+      </div>
+      <div id="countdownContainer" style="display: none;">
+        <div id="countdown" class="countdown"></div>
+        <button id="resetButton">Neu starten</button>
+      </div>
     </div>
-    <div id="countdown"></div>
-    <button id="showInputButton" style="display:none" onclick="showInput()">Neuer Countdown</button>
+    <script>
+      const inputContainer = document.getElementById("inputContainer");
+      const countdownContainer = document.getElementById("countdownContainer");
+      const inputSeconds = document.getElementById("inputSeconds");
+      const startButton = document.getElementById("startButton");
+      const countdown = document.getElementById("countdown");
+      const resetButton = document.getElementById("resetButton");
+
+      let countdownInterval;
+
+      startButton.addEventListener("click", () => {
+        const seconds = parseInt(inputSeconds.value);
+        if (!seconds) return;
+        inputContainer.style.display = "none";
+        countdownContainer.style.display = "flex";
+        let remainingSeconds = seconds;
+        countdown.textContent = remainingSeconds;
+        countdownInterval = setInterval(() => {
+          remainingSeconds--;
+          countdown.textContent = remainingSeconds;
+          if (remainingSeconds === 0) {
+            clearInterval(countdownInterval);
+            countdown.textContent = "Die Zeit ist um";
+          }
+        }, 1000);
+      });
+
+      resetButton.addEventListener("click", () => {
+        clearInterval(countdownInterval);
+        inputContainer.style.display = "flex";
+        countdownContainer.style.display = "none";
+        inputSeconds.value = "";
+      });
+    </script>
   </body>
 </html>
