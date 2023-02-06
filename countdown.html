@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Countdown</title>
+    <script>
+      function startCountdown() {
+        var input = document.getElementById("input").value;
+        var time = parseInt(input);
+        document.getElementById("inputArea").style.display = "none";
+        document.getElementById("countdown").innerHTML = time;
+        setInterval(function() {
+          time--;
+          document.getElementById("countdown").innerHTML = time;
+          if (time === 0) {
+            document.getElementById("countdown").innerHTML = "Die Zeit ist um.";
+            document.getElementById("showInputButton").style.display = "block";
+          }
+        }, 1000);
+      }
+      
+      function showInput() {
+        document.getElementById("inputArea").style.display = "block";
+        document.getElementById("countdown").innerHTML = "";
+        document.getElementById("showInputButton").style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="inputArea">
+      <input type="text" id="input" placeholder="Sekunden eingeben">
+      <button onclick="startCountdown()">Starten</button>
+    </div>
+    <div id="countdown"></div>
+    <button id="showInputButton" style="display:none" onclick="showInput()">Neuer Countdown</button>
+  </body>
+</html>
