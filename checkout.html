@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zufallsfrage</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Random Question Generator</title>
     <style>
         #container {
             display: flex;
@@ -29,10 +28,10 @@
 </head>
 <body>
     <div id="container">
-        <div id="question">Zufallsfrage zum Checkout</div>
-        <button id="button">Anzeigen</button>
+        <div id="question">Zeige meine CheckOut-Frage</div>
+        <button id="button">Los</button>
     </div>
-    </body>
+
     <script>
         var questions = [
             "Wieviele Sterne (0-5) würdest Du dem Lernangebot geben - und was ist Dein Kommentar dazu?",
@@ -62,10 +61,13 @@
             "Hast Du Dich eher unterfordert oder überfordert gefühlt?"
         ];
 
-        $(document).ready(function() {
-            $("#button").click(function() {
-                var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
-                $("#question").text(randomQuestion);
-            });
-       
+        var button = document.getElementById("button");
+        var question = document.getElementById("question");
+
+        button.addEventListener("click", function() {
+            var randomIndex = Math.floor(Math.random() * questions.length);
+            question.innerHTML = questions[randomIndex];
+        });
+    </script>
+</body>
 </html>
