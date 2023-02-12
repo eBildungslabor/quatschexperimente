@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lernangebotsbewertung</title>
+  <script>
+    function showQuestion() {
+      var questions = [
+        "Wieviele Sterne (0-5) würdest Du dem Lernangebot geben - und was ist Dein Kommentar dazu?",
+        "Wie fühlst Du Dich jetzt zum Ende des Lernangebots?",
+        "Was wären drei passende Hashtags mit denen Du die heutige Veranstaltung charakterisieren würdest?",
+        "Warum / Warum nicht würdest Du anderen solch ein Lernangebot empfehlen?",
+        "Was war Dein wichtigstes Learning?",
+        "Was möchtest Du sobald wie möglich ausprobieren oder umsetzen?",
+        "Was wirst Du heute Abend Zuhause über das Lernangebot erzählen?",
+        "Schnell-Check: Daumen hoch oder Daumen runter?",
+        "Wie hast Du Dich in der Gruppe gefühlt?",
+        "Was hat Dir besonders gut gefallen?",
+        "Was hat Dir nicht gefallen?",
+        "Was hast Du vermisst?",
+        "Wozu möchtest Du jetzt weiterlernen?",
+        "Wie herausfordernd fandest Du das gemeinsame Lernen?",
+        "Was möchtest Du aufgrund des heutigen Lernens zukünftig in Deiner Arbeit anders gestalten?",
+        "Wo hat Dich das heutige Lernen in Deiner bisherigen Arbeit bestärkt?",
+        "Was möchtest du aufgrund des heutigen Lernens in Deiner Arbeit zukünftig neu beginnen?",
+        "Inwieweit wurden Deine ursprünglichen Erwartungen an das Lernangebot erfüllt?",
+        "Was fandest Du überflüssig?",
+        "Wie fandest Du die Organisation?",
+        "Bei wem von Deinen Mitlernenden möchtest Du Dich bedanken und wofür?",
+        "Was vom heutigen Lernen möchtest Du mit anderen teilen?",
+        "Wie fandest Du das Verhältnis von Programm und Pausen?",
+        "Wie gut konntest Du Dich mit Deinen Fragen und Erfahrungen einbringen?",
+        "Hast Du Dich eher unterfordert oder überfordert gefühlt?"
+      ];
+      var question = questions[Math.floor(Math.random() * questions.length)];
+      document.getElementById("question").innerHTML = question;
+    }
+  </script>
+</head>
